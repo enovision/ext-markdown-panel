@@ -1,5 +1,5 @@
 {
-  "name": "MarkdownPanel",
+  "name": "ext-markdown-panel",
   "sencha": {
     "namespace": "MdPanel",
     "type": "code",
@@ -43,21 +43,21 @@
     "production": {
       "js": [
         {
-          "path": "resources/MarkdownPanel/remarkable/dist/remarkable.min.js",
+          "path": "resources/ext-markdown-panel/remarkable/dist/remarkable.min.js",
           "remote": true
         },
         {
-          "path": "resources/MarkdownPanel/jsOnlyLightbox/js/lightbox.min.js",
+          "path": "resources/ext-markdown-panel/jsOnlyLightbox/js/lightbox.min.js",
           "remote": true
         }
       ],
       "css": [
         {
-          "path": "resources/MarkdownPanel/github-markdown-css/github-markdown.min.css",
+          "path": "resources/ext-markdown-panel/github-markdown-css/github-markdown.min.css",
           "remote": true
         },
         {
-          "path": "resources/MarkdownPanel/jsOnlyLightbox/css/lightbox.min.min.css",
+          "path": "resources/ext-markdown-panel/jsOnlyLightbox/css/lightbox.min.min.css",
           "remote": true
         }
       ]
