@@ -36,13 +36,51 @@
       "${package.dir}/src"
     ],
     "overrides": [
-      "${package.dir}/overrides"
+      "${package.dir}/overrides",
+      "${package.dir}/${toolkit.name}/overrides",
+      "${package.dir}/locale/${package.locale}"
     ],
-    "example": {
-      "path": [
-        "${package.dir}/examples"
+    "production": {
+      "js": [
+        {
+          "path": "resources/MarkdownPanel/remarkable/dist/remarkable.min.js",
+          "remote": true
+        },
+        {
+          "path": "resources/MarkdownPanel/jsOnlyLightbox/js/lightbox.min.js",
+          "remote": true
+        }
+      ],
+      "css": [
+        {
+          "path": "resources/MarkdownPanel/github-markdown-css/github-markdown.min.css",
+          "remote": true
+        },
+        {
+          "path": "resources/MarkdownPanel/jsOnlyLightbox/css/lightbox.min.min.css",
+          "remote": true
+        }
       ]
     },
+    "development": {
+      "js": [
+        {
+          "path": "resources/remarkable/dist/remarkable.js"
+        },
+        {
+          "path": "resources/jsOnlyLightbox/js/lightbox.js"
+        }
+      ],
+      "css": [
+        {
+          "path": "resources/github-markdown-css/github-markdown.css"
+        },
+        {
+          "path": "resources/jsOnlyLightbox/css/lightbox.css"
+        }
+      ]
+    },
+
     "resources": [
       {
         "path": "resources",

@@ -7,8 +7,6 @@ Ext.define('MarkdownPanel.singleton.DomEvents', {
         return this;
     },
 
-    config: {},
-
     target: false,
 
     clickCheck: function (item) {

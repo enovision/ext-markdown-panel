@@ -1,8 +1,6 @@
 /**
  * Created by jvandemerwe on 17-6-2017.
  */
-Ext.require(['MarkdownPanel.singleton.Loader']);
-
 Ext.define('MarkdownPanel.panel.MarkdownPanel', {
     extend: 'Ext.panel.Panel',
     alternateClassName: ['MdPanel'],
@@ -14,7 +12,7 @@ Ext.define('MarkdownPanel.panel.MarkdownPanel', {
         'MarkdownPanel.toolbar.BrowseTbar'
     ],
 
-    bodyPadding: '10 20 20 20',
+    bodyPadding: '0 20 20 20',
     autoScroll: true,
 
     layout: 'fit',
@@ -46,7 +44,12 @@ Ext.define('MarkdownPanel.panel.MarkdownPanel', {
     remarkableOptions: {},
     Markdown: null,
 
-    html: '', // otherwise no 'body' element
+    failureText: 'Config failure, see console log for more information',
+    ajaxErrorText: 'Ajax failure with error code: ',
+    markdownErrorText: 'Markdown Panel requires a "rootFolder"',
+
+    // otherwise no 'body' element
+    html: '',
 
     initComponent: function () {
         var me = this;
@@ -112,7 +115,7 @@ Ext.define('MarkdownPanel.panel.MarkdownPanel', {
     markdown: function (args) {
         var me = this;
         var fail = me.validate(args);
-        if (fail) return 'Config failure, see console log for more information';
+        if (fail) return me.failureText;
 
         var path = args.rootFolder + '/' + args.rootDocument;
 
@@ -138,23 +141,24 @@ Ext.define('MarkdownPanel.panel.MarkdownPanel', {
 
             },
             failure: function (response) {
-                console.log('Ajax failure with error code: ' + response.status);
-                return 'Communication failure, see console log for more information';
+                console.log(me.ajaxErrorText + response.status);
+                return me.failureText;
             }
         });
     },
 
     privates: {
         validate: function (args) {
+            var me = this;
             var fail = false;
 
             if (args.hasOwnProperty('rootFolder') === false) {
-                console.log('Markdown Panel requires a "rootFolder"');
+                console.log(me.markdownErrorText);
                 fail = true;
             }
 
             if (args.hasOwnProperty('rootDocument') === false) {
-                console.log('Markdown Panel requires a "rootFolder"');
+                console.log(me.markdownErrorText);
                 fail = true;
             }
             return fail;
@@ -197,9 +201,10 @@ Ext.define('MarkdownPanel.panel.MarkdownPanel', {
             me.updatePage();
         },
         updatePage: function () {
-            var me = this;
+            var me = this, output;
             me.setBrowseButtons();
-            var output = me.compileMD(me.browseHistory[me.currentPage - 1]);
+            output = me.compileMD(me.browseHistory[me.currentPage - 1]);
+            output = '<div class="markdown-body-wrapper">'+ output +'</div>';
             me.update(output);
             me.scrollTo(0, 0); // scroll to top
         },

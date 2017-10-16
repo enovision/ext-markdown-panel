@@ -1,15 +1,10 @@
 Ext.define('MarkdownPanel.singleton.Lightbox', {
-    requires: [
-        'MarkdownPanel.singleton.Loader'
-    ],
+    requires: [],
 
     singleton: true,
     alternateClassName: ['MdLightbox'],
 
     config: {
-        jsMinified: false,
-        jsMin: 'jsOnlyLightbox/js/lightbox.min.js',
-        jsFull: 'jsOnlyLightbox/js/lightbox.js',
         lightBox: null,
         lightBoxDefaultOptions: {
             // boxId: 'jslghtbx',
@@ -42,15 +37,6 @@ Ext.define('MarkdownPanel.singleton.Lightbox', {
 
     constructor: function (config) {
         this.initConfig(config);
-
-        MdPanelResourceLoader.load({
-            js: [
-                this.getJsMinified() ? this.getJsMin() : this.getJsFull()
-            ],
-            css: [
-                'jsOnlyLightbox/css/lightbox.min.min.css'
-            ]
-        });
     },
 
     /**

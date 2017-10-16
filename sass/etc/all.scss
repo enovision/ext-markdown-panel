@@ -1,3 +1,17 @@
+.markdown-body-wrapper {
+  max-width: 800px;
+}
+
 .markdown-body img[lightbox] {
   cursor: pointer;
+}
+
+.markdown-body img.bordered {
+  border: 1px solid #cfcfcf !important;
+  padding: 5px;
+}
+
+/* Small correction on the default GIT Css code */
+.markdown-body code {
+  background-color: rgba(27, 31, 35, 0.15) !important;
 }

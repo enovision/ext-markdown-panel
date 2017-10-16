@@ -10,26 +10,32 @@ Ext.define('MarkdownPanel.toolbar.BrowseTbar', {
         disabled: true
     },
 
+    firstPageText: 'First Page',
+    backwardText: 'Previous Page',
+    forwardText: 'Next Page',
+    lastPageText: 'Last Page',
+
     initComponent: function () {
+        var me = this;
+
         Ext.apply(this, {
             items: [{
                 iconCls: 'fa fa-fast-backward',
-                tooltip: 'Erste Seite',
+                tooltip: me.firstPageText,
                 itemId: 'firstpage',
                 handler: function(b) {
                     b.ownerCt.fireEvent('firstpage');
                 }
             }, {
                 iconCls: 'fa fa-backward',
-                tooltip: 'Vorherige Seite',
+                tooltip: me.backwardText,
                 itemId: 'backward',
                 handler: function(b) {
                     b.ownerCt.fireEvent('backward');
                 }
             }, {
                 iconCls: 'fa fa-forward',
-                xtype: 'button',
-                tooltip: 'Nächste Seite',
+                tooltip: me.forwardText,
                 itemId: 'forward',
                 disabled: true,
                 handler: function(b) {
@@ -37,7 +43,7 @@ Ext.define('MarkdownPanel.toolbar.BrowseTbar', {
                 }
             }, {
                 iconCls: 'fa fa-fast-forward',
-                tooltip: 'Letzte Seite',
+                tooltip: me.lastPageText,
                 itemId: 'lastpage',
                 handler: function(b) {
                     b.ownerCt.fireEvent('lastpage');
