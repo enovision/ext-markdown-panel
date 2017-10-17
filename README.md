@@ -7,7 +7,7 @@ application.
 ### Sencha CMD ###
 This package is developed for classic browser applications. It doesn't require the use of Sencha CMD but it is very much recommended.
 
-No Browser Plugin required, pure JavaScript. PDF Rendering is done using the great Mozilla PDF.js Library (<a href="https://github.com/mozilla/pdf.js">https://github.com/mozilla/pdf.js</a>).
+No Browser Plugin required, pure JavaScript.
 
 ### Install ###
 Git clone this repo in the 'packages/local' folder of your application or workspace.
