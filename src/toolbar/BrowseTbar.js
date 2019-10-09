@@ -4,6 +4,11 @@
 Ext.define('MarkdownPanel.toolbar.BrowseTbar', {
     extend: 'Ext.Toolbar',
     xtype: 'MdBrowseTbar',
+
+    requires: [
+        'Ext.button.Button'
+    ],
+
     defaults: {
         xtype: 'button',
         ui: 'plain-toolbar',

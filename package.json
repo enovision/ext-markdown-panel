@@ -1,92 +1,102 @@
 {
   "name": "ext-markdown-panel",
-  "sencha": {
-    "namespace": "MdPanel",
-    "type": "code",
-    "toolkit": "classic",
-    "creator": "Johan van de Merwe",
-    "summary": "Panel that supports Remarkable.js Markdown (view only)",
-    "detailedDescription": "Panel that supports Remarkable.js Markdown (view only)",
-    "version": "1.0.0",
-    "compatVersion": "1.0.0",
-    "format": "1",
-    "slicer": {
-      "js": [
-        {
-          "path": "${package.dir}/sass/example/custom.js",
-          "isWidgetManifest": true
-        }
-      ]
-    },
-    "output": "${package.dir}/build",
-    "local": true,
-    "sass": {
-      "namespace": "MarkdownPanel",
-      "etc": [
-        "${package.dir}/sass/etc/all.scss"
-      ],
-      "var": [
-        "${package.dir}/sass/var"
-      ],
-      "src": [
-        "${package.dir}/sass/src/all.scss"
-      ]
-    },
-    "classpath": [
-      "${package.dir}/src"
-    ],
-    "overrides": [
-      "${package.dir}/overrides",
-      "${package.dir}/${toolkit.name}/overrides",
-      "${package.dir}/locale/${package.locale}"
-    ],
-    "production": {
-      "js": [
-        {
-          "path": "resources/ext-markdown-panel/remarkable/dist/remarkable.min.js",
-          "remote": true
-        },
-        {
-          "path": "resources/ext-markdown-panel/jsOnlyLightbox/js/lightbox.min.js",
-          "remote": true
-        }
-      ],
-      "css": [
-        {
-          "path": "resources/ext-markdown-panel/github-markdown-css/github-markdown.min.css",
-          "remote": true
-        },
-        {
-          "path": "resources/ext-markdown-panel/jsOnlyLightbox/css/lightbox.min.min.css",
-          "remote": true
-        }
-      ]
-    },
-    "development": {
-      "js": [
-        {
-          "path": "resources/remarkable/dist/remarkable.js"
-        },
-        {
-          "path": "resources/jsOnlyLightbox/js/lightbox.js"
-        }
-      ],
-      "css": [
-        {
-          "path": "resources/github-markdown-css/github-markdown.css"
-        },
-        {
-          "path": "resources/jsOnlyLightbox/css/lightbox.css"
-        }
-      ]
-    },
-
-    "resources": [
+  "namespace": "MarkdownPanel",
+  "format": "1",
+  "version": "1.1",
+  "compatVersion": "1.0.0",
+  "creator": "enovision",
+  "summary": "Panel that supports Remarkable.js Markdown (view only)",
+  "detailedDescription": "Panel that supports Remarkable.js Markdown (view only)",
+  "type": "code",
+  "toolkit": "classic",
+  "framework": "ext",
+  "theme": "ext-theme-classic",
+  "resources": [
+    {
+      "path": "resources",
+      "output": "shared"
+    }
+  ],
+  "slicer": {
+    "js": [
       {
-        "path": "resources",
-        "output": "shared"
+        "path": "${package.dir}/sass/example/custom.js",
+        "isWidgetManifest": true
+      }
+    ]
+  },
+  "output": "${package.dir}/build",
+  "sass": {
+    "namespace": "MarkdownPanel",
+    "etc": [
+      "${package.dir}/sass/etc/primer/primer-support/index.scss",
+      "${package.dir}/sass/etc/primer/primer-markdown/index.scss",
+      "${package.dir}/sass/etc/all.scss"
+    ],
+    "var": [
+      "${package.dir}/sass/var"
+    ],
+    "src": [
+      "${package.dir}/sass/src/all.scss"
+    ]
+  },
+  "classpath": [
+    "${package.dir}/src",
+    "${package.dir}/${toolkit.name}/src"
+  ],
+  "overrides": [
+    "${package.dir}/overrides",
+    "${package.dir}/${toolkit.name}/overrides",
+    "${package.dir}/locale/${package.locale}"
+  ],
+  "production": {
+    "js": [
+      {
+        "path": "resources/ext-markdown-panel/remarkable/dist/remarkable.js",
+        "remote": true
+      },
+      {
+        "path": "resources/ext-markdown-panel/jsOnlyLightbox/js/lightbox.min.js",
+        "remote": true
+      },
+      {
+        "path": "resources/ext-markdown-panel/highlight.js/highlight.pack.js",
+        "remote": true
       }
     ],
-    "requires": []
+    "css": [
+      {
+        "path": "resources/ext-markdown-panel/jsOnlyLightbox/css/lightbox.min.min.css",
+        "remote": true
+      },
+      {
+        "path": "resources/ext-markdown-panel/highlight.js/styles/github.css",
+        "remote": true
+      }
+    ]
+  },
+  "development": {
+    "js": [
+      {
+        "path": "resources/remarkable/dist/remarkable.js"
+      },
+      {
+        "path": "resources/jsOnlyLightbox/js/lightbox.js"
+      },
+      {
+        "path": "resources/highlight.js/highlight.pack.js"
+      },
+      {
+        "path": "resources/highlight.js/line-numbers/highlight.line.numbers.min.js"
+      }
+    ],
+    "css": [
+      {
+        "path": "resources/jsOnlyLightbox/css/lightbox.css"
+      },
+      {
+        "path": "resources/highlight.js/styles/github.css"
+      }
+    ]
   }
 }

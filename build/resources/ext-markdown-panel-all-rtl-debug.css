@@ -1,0 +1,547 @@
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/markdown-body.scss:7 */
+.markdown-body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 16px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/markdown-body.scss:14 */
+.markdown-body::before {
+    display: table;
+    content: "";
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/markdown-body.scss:19 */
+.markdown-body::after {
+    display: table;
+    clear: both;
+    content: "";
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/markdown-body.scss:25 */
+.markdown-body > *:first-child {
+    margin-top: 0 !important;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/markdown-body.scss:29 */
+.markdown-body > *:last-child {
+    margin-bottom: 0 !important;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/markdown-body.scss:39 */
+.markdown-body a:not([href]) {
+    color: inherit;
+    text-decoration: none;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/markdown-body.scss:45 */
+.markdown-body .absent {
+    color: #cb2431;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/markdown-body.scss:49 */
+.markdown-body .anchor {
+    float: left;
+    padding-right: 4px;
+    margin-left: -20px;
+    line-height: 1;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/markdown-body.scss:55 */
+.markdown-body .anchor:focus {
+    outline: none;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/markdown-body.scss:60 */
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/markdown-body.scss:71 */
+.markdown-body hr {
+    height: 0.25em;
+    padding: 0;
+    margin: 24px 0;
+    background-color: #e1e4e8;
+    border: 0;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/markdown-body.scss:79 */
+.markdown-body blockquote {
+    padding: 0 1em;
+    color: #6a737d;
+    border-left: 0.25em solid #dfe2e5;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/markdown-body.scss:84 */
+.markdown-body blockquote > :first-child {
+    margin-top: 0;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/markdown-body.scss:88 */
+.markdown-body blockquote > :last-child {
+    margin-bottom: 0;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/markdown-body.scss:93 */
+.markdown-body kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font-size: 11px;
+    line-height: 10px;
+    color: #444d56;
+    vertical-align: middle;
+    background-color: #fafbfc;
+    border: solid 1px #c6cbd1;
+    border-bottom-color: #959da5;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #959da5;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/headings.scss:6 */
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: bold;
+    line-height: 1.25;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/headings.scss:17 */
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+    color: #1b1f23;
+    vertical-align: middle;
+    visibility: hidden;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/headings.scss:23 */
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+    text-decoration: none;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/headings.scss:26 */
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+    visibility: visible;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/headings.scss:31 */
+.markdown-body h1 tt,
+.markdown-body h1 code,
+.markdown-body h2 tt,
+.markdown-body h2 code,
+.markdown-body h3 tt,
+.markdown-body h3 code,
+.markdown-body h4 tt,
+.markdown-body h4 code,
+.markdown-body h5 tt,
+.markdown-body h5 code,
+.markdown-body h6 tt,
+.markdown-body h6 code {
+    font-size: inherit;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/headings.scss:37 */
+.markdown-body h1 {
+    padding-bottom: 0.3em;
+    font-size: 2em;
+    border-bottom: 1px solid #eaecef;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/headings.scss:43 */
+.markdown-body h2 {
+    padding-bottom: 0.3em;
+    font-size: 1.5em;
+    border-bottom: 1px solid #eaecef;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/headings.scss:49 */
+.markdown-body h3 {
+    font-size: 1.25em;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/headings.scss:53 */
+.markdown-body h4 {
+    font-size: 1em;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/headings.scss:57 */
+.markdown-body h5 {
+    font-size: 0.875em;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/headings.scss:61 */
+.markdown-body h6 {
+    font-size: 0.85em;
+    color: #6a737d;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/lists.scss:7 */
+.markdown-body ul,
+.markdown-body ol {
+    padding-left: 2em;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/lists.scss:11 */
+.markdown-body ul.no-list,
+.markdown-body ol.no-list {
+    padding: 0;
+    list-style-type: none;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/lists.scss:40 */
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/lists.scss:48 */
+.markdown-body li {
+    word-wrap: break-all;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/lists.scss:52 */
+.markdown-body li > p {
+    margin-top: 16px;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/lists.scss:56 */
+.markdown-body li + li {
+    margin-top: 0.25em;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/lists.scss:60 */
+.markdown-body dl {
+    padding: 0;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/lists.scss:63 */
+.markdown-body dl dt {
+    padding: 0;
+    margin-top: 16px;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: bold;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/lists.scss:71 */
+.markdown-body dl dd {
+    padding: 0 16px;
+    margin-bottom: 16px;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/tables.scss:5 */
+.markdown-body table {
+    display: block;
+    width: 100%;
+    overflow: auto;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/tables.scss:10 */
+.markdown-body table th {
+    font-weight: bold;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/tables.scss:14 */
+.markdown-body table th,
+.markdown-body table td {
+    padding: 6px 13px;
+    border: 1px solid #dfe2e5;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/tables.scss:20 */
+.markdown-body table tr {
+    background-color: #fff;
+    border-top: 1px solid #c6cbd1;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/tables.scss:24 */
+.markdown-body table tr:nth-child(2n) {
+    background-color: #f6f8fa;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/tables.scss:29 */
+.markdown-body table img {
+    background-color: transparent;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/images.scss:6 */
+.markdown-body img {
+    max-width: 100%;
+    box-sizing: content-box;
+    background-color: #fff;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/images.scss:13 */
+.markdown-body img[align=right] {
+    padding-left: 20px;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/images.scss:17 */
+.markdown-body img[align=left] {
+    padding-right: 20px;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/images.scss:22 */
+.markdown-body .emoji {
+    max-width: none;
+    vertical-align: text-top;
+    background-color: transparent;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/images.scss:32 */
+.markdown-body span.frame {
+    display: block;
+    overflow: hidden;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/images.scss:36 */
+.markdown-body span.frame > span {
+    display: block;
+    float: left;
+    width: auto;
+    padding: 7px;
+    margin: 13px 0 0;
+    overflow: hidden;
+    border: 1px solid #dfe2e5;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/images.scss:46 */
+.markdown-body span.frame span img {
+    display: block;
+    float: left;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/images.scss:51 */
+.markdown-body span.frame span span {
+    display: block;
+    padding: 5px 0 0;
+    clear: both;
+    color: #24292e;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/images.scss:59 */
+.markdown-body span.align-center {
+    display: block;
+    overflow: hidden;
+    clear: both;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/images.scss:64 */
+.markdown-body span.align-center > span {
+    display: block;
+    margin: 13px auto 0;
+    overflow: hidden;
+    text-align: center;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/images.scss:71 */
+.markdown-body span.align-center span img {
+    margin: 0 auto;
+    text-align: center;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/images.scss:77 */
+.markdown-body span.align-right {
+    display: block;
+    overflow: hidden;
+    clear: both;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/images.scss:82 */
+.markdown-body span.align-right > span {
+    display: block;
+    margin: 13px 0 0;
+    overflow: hidden;
+    text-align: right;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/images.scss:89 */
+.markdown-body span.align-right span img {
+    margin: 0;
+    text-align: right;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/images.scss:95 */
+.markdown-body span.float-left {
+    display: block;
+    float: left;
+    margin-right: 13px;
+    overflow: hidden;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/images.scss:101 */
+.markdown-body span.float-left span {
+    margin: 13px 0 0;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/images.scss:106 */
+.markdown-body span.float-right {
+    display: block;
+    float: right;
+    margin-left: 13px;
+    overflow: hidden;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/images.scss:112 */
+.markdown-body span.float-right > span {
+    display: block;
+    margin: 13px auto 0;
+    overflow: hidden;
+    text-align: right;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/code.scss:4 */
+.markdown-body code,
+.markdown-body tt {
+    padding: 0.2em 0.4em;
+    margin: 0;
+    font-size: 85%;
+    background-color: rgba(27, 31, 35, 0.05);
+    border-radius: 3px;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/code.scss:12 */
+.markdown-body code br,
+.markdown-body tt br {
+    display: none;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/code.scss:15 */
+.markdown-body del code {
+    text-decoration: inherit;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/code.scss:17 */
+.markdown-body pre {
+    word-wrap: normal;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/code.scss:21 */
+.markdown-body pre > code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/code.scss:32 */
+.markdown-body .highlight {
+    margin-bottom: 16px;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/code.scss:35 */
+.markdown-body .highlight pre {
+    margin-bottom: 0;
+    word-break: normal;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/code.scss:41 */
+.markdown-body .highlight pre,
+.markdown-body pre {
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f6f8fa;
+    border-radius: 3px;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/code.scss:51 */
+.markdown-body pre code,
+.markdown-body pre tt {
+    display: inline;
+    max-width: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/blob-csv.scss:3 */
+.markdown-body .csv-data td,
+.markdown-body .csv-data th {
+    padding: 5px;
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 1;
+    text-align: left;
+    white-space: nowrap;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/blob-csv.scss:13 */
+.markdown-body .csv-data .blob-num {
+    padding: 10px 8px 9px;
+    text-align: right;
+    background: #fff;
+    border: 0;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/blob-csv.scss:20 */
+.markdown-body .csv-data tr {
+    border-top: 0;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/primer/primer-markdown/lib/blob-csv.scss:22 */
+.markdown-body .csv-data th {
+    font-weight: bold;
+    background: #f6f8fa;
+    border-top: 0;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/all.scss:1 */
+.markdown-body-wrapper {
+    max-width: 800px;
+    font-size: 15px;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/all.scss:6 */
+.markdown-body a {
+    color: #0366d6;
+    text-decoration: none;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/all.scss:11 */
+.markdown-body a:hover {
+    text-decoration: underline;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/all.scss:16 */
+.markdown-body h4,
+.markdown-body h5 {
+    font-weight: bold;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/all.scss:21 */
+.markdown-body-wrapper.regular {
+    max-width: 800px;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/all.scss:25 */
+.markdown-body-wrapper.max1024 {
+    max-width: 1024px;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/all.scss:29 */
+.markdown-body-wrapper.max1200 {
+    max-width: 1200px;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/all.scss:33 */
+.markdown-body-wrapper.max1650 {
+    max-width: 1650px;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/all.scss:37 */
+.markdown-body-wrapper.unlimited {
+    max-width: 100%;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/all.scss:41 */
+.markdown-body img[lightbox] {
+    cursor: pointer;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/all.scss:45 */
+.markdown-body img.bordered {
+    border: 1px solid #cfcfcf !important;
+    padding: 5px;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/all.scss:51 */
+.markdown-body code {
+    /* Small correction on the default GIT Css code */
+    padding: 0.2em 0.4em;
+    margin: 0;
+    font-size: 85%;
+    background-color: rgba(27, 31, 35, 0.14);
+    border-radius: 3px;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/all.scss:59 */
+.markdown-body .highlight pre,
+.markdown-body pre {
+    font-size: 100% !important;
+    background-color: #fff !important;
+    border: 1px solid #f1f1f1;
+    border-radius: 0;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/all.scss:71 */
+td.hljs-ln-numbers {
+    /**
+ * Line Numbers highlight.js
+ */
+    /* for block of numbers */
+    /**
+ * Line Numbers highlight.js
+ */
+    /* for block of numbers */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-align: center;
+    color: #ccc;
+    border-right: 1px solid #ccc;
+    vertical-align: top;
+    padding-right: 5px;
+}
+/* /mnt/nas/evserver02/SourceVault/enovision.github/enovision.github.io (the right one)/packages/local/ext-markdown-panel/sass/etc/all.scss:89 */
+td.hljs-ln-code {
+    /* for block of code */
+    /* for block of code */
+    padding-left: 10px;
+}

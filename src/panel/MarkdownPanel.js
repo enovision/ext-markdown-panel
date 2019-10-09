@@ -3,10 +3,11 @@
  */
 Ext.define('MarkdownPanel.panel.MarkdownPanel', {
     extend: 'Ext.panel.Panel',
-    alternateClassName: ['MdPanel'],
+    alternateClassName: ['MdPanel', 'MarkdownPanel'],
     xtype: 'MdPanel',
 
     requires: [
+        'Ext.layout.container.Fit',
         'MarkdownPanel.singleton.DomEvents',
         'MarkdownPanel.singleton.Lightbox',
         'MarkdownPanel.toolbar.BrowseTbar'
@@ -18,6 +19,11 @@ Ext.define('MarkdownPanel.panel.MarkdownPanel', {
     layout: 'fit',
 
     options: {},
+    /**
+     * 'regular', 'max1024', 'max1200', 'max1650', 'unlimited'
+     * @cfg wrapperWidth
+     */
+    contentWidth: 'regular',
 
     browseHistory: [],
     currentPage: -1,
@@ -25,14 +31,16 @@ Ext.define('MarkdownPanel.panel.MarkdownPanel', {
     cls: 'markdown-body', // don't change this !!!
 
     config: {
-        rootFolder: null,
-        rootDocument: null,
+        rootFolder: '',                // usually '/resources/doc/moduleSomething'
+        rootBook: null,                // usually '/someBook'
+        rootDocument: null,            // usually 'index.md' as in /resources/doc/moduleSomething/someBook/index.md
+        lineNumbers: false,
         remarkableDefaults: {
-            html: true,              // Enable HTML tags in source
-            xhtmlOut: false,          // Use '/' to close single tags (<br />)
-            breaks: false,            // Convert '\n' in paragraphs into <br>
-            langPrefix: 'language-',  // CSS language prefix for fenced blocks
-            linkify: true,            // Autoconvert URL-like text to links
+            html: true,                // Enable HTML tags in source
+            xhtmlOut: false,           // Use '/' to close single tags (<br />)
+            breaks: false,             // Convert '\n' in paragraphs into <br>
+            langPrefix: 'language-',   // CSS language prefix for fenced blocks
+            linkify: true,             // Autoconvert URL-like text to links
             // Enable some language-neutral replacement + quotes beautification
             typographer: true,
             // Double + single quotes replacement pairs, when typographer enabled,
@@ -46,7 +54,9 @@ Ext.define('MarkdownPanel.panel.MarkdownPanel', {
 
     failureText: 'Config failure, see console log for more information',
     ajaxErrorText: 'Ajax failure with error code: ',
-    markdownErrorText: 'Markdown Panel requires a "rootFolder"',
+    markdownErrorText: 'Markdown Panel requires a "rootFolder" or "rootBook"',
+    page404: 'Page not found',
+    failTitle: 'Error',
 
     // otherwise no 'body' element
     html: '',
@@ -70,20 +80,59 @@ Ext.define('MarkdownPanel.panel.MarkdownPanel', {
             }]
         });
 
-        Ext.apply(this.options, this.getRemarkableDefaults());
-        this.Markdown = new Remarkable('full', this.options);
-        this.Markdown.core.ruler.enable([
+        Ext.apply(me.options, me.getRemarkableDefaults());
+        me.Markdown = new Remarkable('full', me.options);
+        me.Markdown.core.ruler.enable([
             'abbr'
         ]);
+
+
+        me.Markdown.renderer.rules.image = (function() {
+            var original = me.Markdown.renderer.rules.image;
+
+            return function(tokens, idx) {
+                var src = tokens[idx]['src'];
+                var srcSplit = src.split(/[&|?]/);
+
+                if (srcSplit.length > 0) {
+                    tokens[idx]['src'] = srcSplit[0];
+                }
+
+                srcSplit.slice(1).map(function(val, ix) {
+                    srcSplit[ix + 1] = decodeURI(val).replace('+', ' '); // because it is sliced at 1 !!!
+                });
+
+                var imgOutput, outputSplit, newTag, ix;
+
+                ix = srcSplit.indexOf('bordered');
+                if (ix >= 0) {
+                    srcSplit[ix] = 'class="bordered"';
+                }
+
+                imgOutput = original.apply(this, arguments);
+                outputSplit = imgOutput.split(' ');
+
+                newTag = outputSplit.slice(0, 2).concat(srcSplit.slice(1), outputSplit.slice(2));
+
+                return newTag.join(' ');
+            };
+        })();
 
         me.callParent(arguments);
     },
 
     listeners: {
         afterrender: function (panel) {
+            if (panel.getRootBook() !== '') {
+                panel.setRootBook(panel.getRootFolder() + panel.getRootBook());
+            } else {
+                panel.setRootBook(panel.getRootFolder());
+                panel.setRootFolder('');
+            }
+
             panel.markdown({
-                rootFolder: this.getRootFolder(),
-                rootDocument: this.getRootDocument()
+                rootBook: panel.getRootBook(),
+                rootDocument: panel.getRootDocument()
             });
             panel.body.on('click', function (item, e) {
                 var media = MdDomEvents.clickCheck(item);
@@ -91,7 +140,7 @@ Ext.define('MarkdownPanel.panel.MarkdownPanel', {
                     item.stopEvent();
                     if (media.extension.toLowerCase() === 'md') {
                         panel.markdown({
-                            rootFolder: panel.getRootFolder(),
+                            rootBook: panel.getRootBook(),
                             rootDocument: media.link
                         });
                     } else {
@@ -117,7 +166,7 @@ Ext.define('MarkdownPanel.panel.MarkdownPanel', {
         var fail = me.validate(args);
         if (fail) return me.failureText;
 
-        var path = args.rootFolder + '/' + args.rootDocument;
+        var path = args.rootBook + '/' + args.rootDocument;
 
         Ext.Ajax.request({
             url: path,
@@ -142,6 +191,14 @@ Ext.define('MarkdownPanel.panel.MarkdownPanel', {
             },
             failure: function (response) {
                 console.log(me.ajaxErrorText + response.status);
+                if (response.status === 404) {
+                    Ext.Msg.show({
+                        title: me.failTitle,
+                        message: me.page404,
+                        icon: Ext.Msg.ERROR,
+                        buttons: Ext.Msg.OK
+                    });
+                }
                 return me.failureText;
             }
         });
@@ -152,7 +209,7 @@ Ext.define('MarkdownPanel.panel.MarkdownPanel', {
             var me = this;
             var fail = false;
 
-            if (args.hasOwnProperty('rootFolder') === false) {
+            if (args.hasOwnProperty('rootBook') === false) {
                 console.log(me.markdownErrorText);
                 fail = true;
             }
@@ -167,9 +224,13 @@ Ext.define('MarkdownPanel.panel.MarkdownPanel', {
             return str.split(find).join(replace);
         },
         compileMD: function (response) {
+            var me = this;
             // repair relative paths first
-            // that is: any './xxx' with be replaced with /rootfolder/xxx
-            response = this.replaceAll(response, './', this.getRootFolder() + '/');
+            // that is: any './xxx' will be replaced with /rootfolder/xxx
+            // and any: '$/xxx will be replaced with /rootPath/xxx
+
+            response = me.replaceAll(response, '$/', me.getRootFolder() + '/');
+            response = me.replaceAll(response, './', me.getRootBook() + '/');
 
             return this.Markdown.render(response);
         },
@@ -204,9 +265,14 @@ Ext.define('MarkdownPanel.panel.MarkdownPanel', {
             var me = this, output;
             me.setBrowseButtons();
             output = me.compileMD(me.browseHistory[me.currentPage - 1]);
-            output = '<div class="markdown-body-wrapper">'+ output +'</div>';
+            output = '<div class="markdown-body-wrapper ' + me.contentWidth  +'">' + output + '</div>';
+
             me.update(output);
-            me.scrollTo(0, 0); // scroll to top
+            // scroll to top
+            me.scrollTo(0, 0);
+            /** Highlight.js */
+            me.highlightAll();
+
         },
         setBrowseButtons: function () {
             var me = this;
@@ -223,6 +289,27 @@ Ext.define('MarkdownPanel.panel.MarkdownPanel', {
                 tbar.show();
             } else {
                 tbar.hide();
+            }
+        },
+
+        privates: {
+            highlightAll: function () {
+                var me = this;
+                var dom = me.body.dom;
+                var preEl = dom.getElementsByTagName('pre');
+
+                Ext.each(preEl, function (el) {
+                    var code = el.getElementsByTagName('code');
+                    if (code.length > 0) {
+                        hljs.highlightBlock(code[0]);
+                        /**
+                         * Line numbers
+                         */
+                        if (me.getLineNumbers()) {
+                            hljs.lineNumbersBlock(code[0]);
+                        }
+                    }
+                });
             }
         }
     }

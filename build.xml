@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project name="MarkdownPanel" default=".help">
-
     <script language="javascript">
         <![CDATA[
             var dir = project.getProperty("basedir"),

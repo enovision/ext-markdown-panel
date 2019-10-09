@@ -61,7 +61,8 @@ tabPanel.add({
    // This is the root folder that can be found in the resources folder
    // in the root of your application, you could use your own here, but put it
    // outside of your application, otherwise it won't be found
-   rootFolder: '/resources/doc/prodfenster', 
+   rootFolder: '/resources/doc/prodfenster',
+   rootBook:   '/moduleInProdfenster', 
    // This is the root document that will be loaded first after opening the panel.
    rootDocument: 'index.md',
    listeners: {
@@ -105,42 +106,107 @@ In this sample the document tree is:
 ```
 \resources
 \--- doc
-\------ img
-\--------- prodviewer.jpg
-\--------- overview.png
-\------ chapter
-\--------- calendar.md
-\--------- how-to-use.md
-\--------- info.md
-\--------- search.md
-\--------- orders.md
-\------ index.md
+\------ myapplication  <- rootFolder
+\--------- assets  < (1)
+\------------ img
+\-------------- prodviewer.jpg
+\-------------- machine_overview.jpg
+\--------- moduleinmyapplication <- rootBook
+\------------ img < (2)
+\-------------- prodviewer.jpg
+\-------------- overview.png
+\------------ chapters
+\-------------- calendar.md
+\-------------- how-to-use.md
+\-------------- info.md
+\-------------- search.md
+\-------------- orders.md
+\------------ index.md
 ```
+### How the images are referenced in your .md files
+
+The `rootFolder` relates to the root folder of the domain where the application is running.
+So in fact `http://yourdomain.com/resources`, where /resources would be the root and related to
+the sample structure above, `rootFolder` would be: `/resources/doc/myapplication`. 
+The value of `rootBook` would be: `/moduleinmyapplication`. The value of `rootDocument` would be: `index.md`.
+
+To reference the images in the assets folder you use: `$/assets/img/prodviewer.jpg`. This will automatically search
+the image in the named folder in the `rootFolder` you have defined.
+
+To reference images relative to the `moduleinmyapplication` you use: `./img/overview.png`. This will automatically search
+the image in the named folder under the `moduleinmyapplication` folder you have defined.
+
+This structure makes it possible to use images in more than one "book" (module).
+
+#### Sample
     
 So in f.e. how-to-use.md:
 
 ```
-# Production viewer
+# Software manual
 
-## How to use this programm
+## How to use this program
 
-<img src="./img/overview.png" width="800" lightbox class="bordered" />
+width
+=====
 
-### Operation
+<img src="./img/overview.png" width="800" lightbox class="bordered" alt="Sample 1" />
 
-Bla bla bla...
+is the same as:
+
+![Sample 1](./img/overview.png?width="800"&lightbox&class="bordered")
+
+and also as:
+
+![Sample 1](./img/overview.png?width="800"&lightbox&bordered)
+
+but this is not working:
+
+![Sample 1](./img/overview.png?width=800&lightbox&bordered) <= quotes missing
+
+title
+=====
+
+this is allowed, where "Very nice Title" works as a title (normal Markdown): 
+
+![Sample title 1](./img/overview.png?width="800"&lightbox&bordered "Very nice title")
+
+but not working:
+
+![Sample title 2](./img/overview.png?width="800"&lightbox&bordered&title="Very nice title")
+
+but working: 
+
+![Sample title 3](./img/overview.png?width="800"&lightbox&bordered&title="Very+nice+title")
+
+classes
+=======
+
+not working:
+
+![Sample 6](./img/overview.png?width="800"&lightbox&class="bordered but not bored")
+
+but this is working:
+
+![Sample 7](./img/overview.png?width="800"&lightbox&class="bordered+but+not+bored")
+
+Don't use `bordered` and class="..." in the same link !!!
+
+alt
+===
+
+![Sample title alt](./img/overview.png?lightbox&bordered "Very nice title")
+
+is the same as:
+
+![](./img/overview.png?lightbox&bordered&alt="Sample+title+alt" "Very nice title")
+
 ```
 
-In this sample you see that the image is defined by a classic html tag. The reason for this is 
-to have a initial width (responsive) and to add a "lightbox" tag to have a lightbox available and
-to have a class "bordered" to create a fine line around the image. These options are already defined
-in this package.
-
-But important is that again the image refers as "./img/overview.png". So it also could have been defined as:
-```
-![Overview](./img/overview.png "")
-```
-but then you don't have a lightbox and border and the image is shown in its original size.
+In the samples above you can see that the image can both be defined as a classic html tag or as a markdown tag with some available tweaks.
+You can tweak the initial width (responsive) to an image, add a "lightbox" tag to activate a lightbox and
+add a border with `bordered`, to create a fine line around the image. You can also have additional html tags like `alt`, `class` or `title` or any other
+value but that is not standard `markdown` reference. 
 
 ### External links 
 
@@ -159,11 +225,11 @@ another language folder like `de` or `nl` with the same structure.
 
 This package is using some kind of paging, that is, it will save the contents loaded in the panel object.
 Markdown pages are not very resource consuming and by saving them in the panel object, some kind of intelligent
-paging is possible. Although pages are read from the server every time, it will only load again as a new page, 
-when the content of the page is modified. Of course it will only be saved as long as the panel object exists in
+paging is possible. Although pages are read from the server every time, it will only load again as a new page 
+when the content of the page is modified. The contents will be saved in your browser as long as the panel object exists in
 your program.
 
-Paging is adding paging to a batch and in that perspective you are browsing back and forward through this batch of viewed documents.
+Paging is adding pages to a queue and in that perspective you are browsing back and forward through this sequential queue of viewed documents.
 
 ### Markdown documentation ###
 
@@ -172,7 +238,6 @@ Paging is adding paging to a batch and in that perspective you are browsing back
 ### Nice to haves for the next version ###
 
 * Search function (somewhat difficult, for it has to load all the documents first)
-* Non html `img` tags to have a lightbox, border and size.
 * any other suggested nice to haves...
     
 ### Demo ###

@@ -1,5 +1,41 @@
 .markdown-body-wrapper {
   max-width: 800px;
+  font-size: 15px;
+}
+
+.markdown-body a {
+  color: $text-blue;
+  text-decoration: none;
+}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body {
+  h4, h5 {
+    font-weight: bold;
+  }
+}
+
+.markdown-body-wrapper.regular {
+  max-width: 800px;
+}
+
+.markdown-body-wrapper.max1024 {
+  max-width: 1024px;
+}
+
+.markdown-body-wrapper.max1200 {
+  max-width: 1200px;
+}
+
+.markdown-body-wrapper.max1650 {
+  max-width: 1650px;
+}
+
+.markdown-body-wrapper.unlimited {
+  max-width: 100%;
 }
 
 .markdown-body img[lightbox] {
@@ -13,5 +49,43 @@
 
 /* Small correction on the default GIT Css code */
 .markdown-body code {
-  background-color: rgba(27, 31, 35, 0.15) !important;
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(27, 31, 35, 0.14);
+  border-radius: 3px;
+}
+
+.markdown-body .highlight pre, .markdown-body pre {
+  font-size: 100% !important;
+  background-color: #fff !important;
+  border: 1px solid #f1f1f1;
+  border-radius: 0;
+}
+
+/**
+ * Line Numbers highlight.js
+ */
+
+/* for block of numbers */
+td.hljs-ln-numbers {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  text-align: center;
+  color: #ccc;
+  border-right: 1px solid #CCC;
+  vertical-align: top;
+  padding-right: 5px;
+
+  /* your custom style here */
+}
+
+/* for block of code */
+td.hljs-ln-code {
+  padding-left: 10px;
 }
